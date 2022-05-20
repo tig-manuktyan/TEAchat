@@ -99,8 +99,10 @@ const Websock = () => {
                 <div className="connected">User connected {mess.userName}</div>
               ) : (
                 <div className="message">
-                  {mess.userName}
-                  {mess.message}
+                  <p className="messageText">
+                    {mess.userName}
+                    {mess.message}
+                  </p>
                 </div>
               )}
             </div>
@@ -114,7 +116,7 @@ const Websock = () => {
                   width: 550,
                   borderColor: "#212121",
                   backgroundColor: "#212121",
-                  boxShadow: 'none'
+                  boxShadow: "none",
                 }}
                 onEmojiClick={onEmojiClick}
                 disableAutoFocus={true}

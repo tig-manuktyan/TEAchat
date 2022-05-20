@@ -21,6 +21,7 @@
 }
 
 .sendBtn {
+    align-self: flex-end;
     background-color: #8774E1;
     border: 0;
     width: 50px;

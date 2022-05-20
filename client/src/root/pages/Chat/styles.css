@@ -64,14 +64,20 @@
     flex-direction: column-reverse;
 }
 
-.message {
-    background-color: #8774E1;
-    border-radius: 12px 6px 6px 12px;
-    max-width: 480px;
-    height: auto;
-    width: fit-content;
-    padding: 0 0.5rem 0.375rem 0.625rem;
+.messageText {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
     color: #fff;
+    background-color: #8774E1;
+    max-width: 440px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    margin: 15px 0;
+    word-break: break-all;
+    direction: ltr;
 }
 
 .emojiPicker {
@@ -84,7 +90,8 @@
     background-color: #212121 !important;
     color: #fff !important;
 }
-.aside.emoji-picker-react{
+
+.aside.emoji-picker-react {
     box-shadow: 0 5px 10px #212121 !important;
 }
 
