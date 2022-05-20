@@ -29,11 +29,11 @@ const SendMessage = ({
         </button>
       </div>
       {Boolean(value) ? (
-        <button className="sendBtn" onClick={sendMessage}>
+        <button type="submit" className="sendBtn" onClick={sendMessage}>
           <ISend />
         </button>
       ) : (
-        <button className="sendBtn" onClick={sendMessage}>
+        <button type="submit" className="sendBtn" onClick={sendMessage}>
           <IVoice />
         </button>
       )}
