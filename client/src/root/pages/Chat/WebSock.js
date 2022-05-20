@@ -3,14 +3,25 @@ import SendMessage from "../../components/ui-components/Input/SendMessage";
 import TextArea from "../../components/ui-components/TextArea/TextArea";
 import { LoginLogo } from "./../../assets/icon/LoginLogo";
 import "./styles.css";
+import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
 
 const Websock = () => {
   const [value, setValue] = useState("");
   const [message, setMessage] = useState([]);
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+  const [openEmoji, setOpenEmoji] = useState(false);
+
   const socket = useRef();
   const [conected, setConected] = useState(false);
   const [userName, setUserName] = useState("");
 
+  const onEmojiClick = (event, emojiObject) => {
+    setChosenEmoji(emojiObject);
+  };
+
+  const openEmojiPicker = () => {
+    setOpenEmoji(!openEmoji);
+  };
   useEffect(() => {}, []);
   function connect() {
     socket.current = new WebSocket("ws://localhost:5000");
@@ -95,10 +106,24 @@ const Websock = () => {
           ))}
         </div>
         <div className="form">
+          {openEmoji && (
+            <div className="emojiPicker">
+              <Picker
+                onEmojiClick={onEmojiClick}
+                disableAutoFocus={true}
+                skinTone={SKIN_TONE_MEDIUM_DARK}
+                groupNames={{ smileys_people: "PEOPLE" }}
+                native
+              />
+            </div>
+          )}
           <SendMessage
             value={value}
             onChange={onChangeInputValue}
             sendMessage={sendMessage}
+            chosenEmoji={chosenEmoji}
+            onEmojiClick={onEmojiClick}
+            openEmojiPicker={openEmojiPicker}
           />
         </div>
       </div>

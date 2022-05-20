@@ -3,31 +3,23 @@ import { ISend } from "../../../assets/icon/ISend";
 import { ISmile } from "../../../assets/icon/ISmile";
 import { IVoice } from "../../../assets/icon/IVoice";
 import TextArea from "../TextArea/TextArea";
-import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
 
 import "./styles.css";
 
-const SendMessage = ({ value, onChange, sendMessage }) => {
-  const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [openEmoji, setOpenEmoji] = useState(false);
-  const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
-  };
-
+const SendMessage = ({
+  value,
+  onChange,
+  sendMessage,
+  chosenEmoji,
+  onEmojiClick,
+  openEmojiPicker,
+  openEmoji,
+}) => {
   return (
     <div className="sendMessage">
       <div className="sendMessInput">
-        {openEmoji && (
-          <Picker
-            onEmojiClick={onEmojiClick}
-            disableAutoFocus={true}
-            skinTone={SKIN_TONE_MEDIUM_DARK}
-            groupNames={{ smileys_people: "PEOPLE" }}
-            native
-          />
-        )}
         {/* {chosenEmoji.emoji} */}
-        <button className="smileBtn" onClick={() => setOpenEmoji(!openEmoji)}>
+        <button className="smileBtn" onClick={openEmojiPicker}>
           <ISmile />
         </button>
         <TextArea value={value} onChange={onChange} />
