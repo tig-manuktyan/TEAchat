@@ -8,6 +8,8 @@
 .sendMessInput {
     background-color: #212121;
     display: flex;
+    width: 500px;
+    max-width: 520px;
     align-items: center;
     border-radius: 20px 20px 0px 20px;
 }
@@ -15,6 +17,7 @@
 .smileBtn {
     border: 0;
     background-color: transparent;
+    align-self: flex-end;
 }
 
 .sendBtn {

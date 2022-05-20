@@ -109,6 +109,12 @@ const Websock = () => {
           {openEmoji && (
             <div className="emojiPicker">
               <Picker
+                pickerStyle={{
+                  width: 550,
+                  borderColor: "#212121",
+                  backgroundColor: "#212121",
+                  boxShadow: 'none'
+                }}
                 onEmojiClick={onEmojiClick}
                 disableAutoFocus={true}
                 skinTone={SKIN_TONE_MEDIUM_DARK}

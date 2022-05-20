@@ -5,6 +5,7 @@ import { IVoice } from "../../../assets/icon/IVoice";
 import TextArea from "../TextArea/TextArea";
 
 import "./styles.css";
+import { IAttachment } from './../../../assets/icon/IAttachment';
 
 const SendMessage = ({
   value,
@@ -23,6 +24,9 @@ const SendMessage = ({
           <ISmile />
         </button>
         <TextArea value={value} onChange={onChange} />
+        <button className="smileBtn" onClick={openEmojiPicker}>
+          <IAttachment />
+        </button>
       </div>
       {Boolean(value) ? (
         <button className="sendBtn" onClick={sendMessage}>

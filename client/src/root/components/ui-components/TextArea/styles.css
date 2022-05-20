@@ -2,10 +2,9 @@
     padding: 2px;
     resize: none;
     overflow-y: hidden;
-}
-.input{
+    color: red;
     background-color: transparent;
     outline: none;
     border: 0;
-    color: red;
+    width: 420px;
 }
