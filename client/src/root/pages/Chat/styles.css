@@ -34,13 +34,17 @@
 }
 
 .connected {
-    background: hsla(299.143, 44.1667%, 37.4706%, 0.4);
-    padding: 0.28125rem 0.625rem;
-    color: #fff;
-    width: fit-content;
-    border-radius: 12px 6px 6px 12px;
     display: flex;
     justify-content: center;
+
+}
+
+.connectedText {
+    width: fit-content;
+    padding: 0.28125rem 0.625rem;
+    color: #fff;
+    background: hsla(299.143, 44.1667%, 37.4706%, 0.4);
+    border-radius: 12px 6px 6px 12px;
 
 }
 
@@ -48,6 +52,28 @@
     display: flex;
     align-items: center;
     width: 100%;
+}
+
+.messageBody {
+    display: flex;
+    justify-content: center;
+}
+
+.userPhoto {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #8774E1 0%, rgba(135, 116, 225, 0) 100%);
+    border-radius: 50%;
+    position: absolute;
+    left: -60px;
+    top: 0;
+}
+
+.message {
+    width: 50%;
 }
 
 .Navbar {
@@ -66,7 +92,7 @@
 
 .messageText {
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 10px 50px 10px 20px;
     border-radius: 25px;
     color: #fff;
     background-color: #8774E1;
@@ -78,6 +104,14 @@
     margin: 15px 0;
     word-break: break-all;
     direction: ltr;
+    position: relative;
+}
+
+.time {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    font-size: 14px;
 }
 
 .emojiPicker {

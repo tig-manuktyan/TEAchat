@@ -10,7 +10,14 @@ const Websock = () => {
   const [message, setMessage] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [openEmoji, setOpenEmoji] = useState(false);
-
+  const now = new Date();
+  const addZero = (i) => {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  };
+  const current = addZero(now.getHours()) + ":" + addZero(now.getMinutes());
   const socket = useRef();
   const [conected, setConected] = useState(false);
   const [userName, setUserName] = useState("");
@@ -22,7 +29,11 @@ const Websock = () => {
   const openEmojiPicker = () => {
     setOpenEmoji(!openEmoji);
   };
-  useEffect(() => {}, []);
+
+  useEffect(() => {
+    
+  }, []);
+
   function connect() {
     socket.current = new WebSocket("ws://localhost:5000");
     socket.current.onopen = () => {
@@ -30,6 +41,7 @@ const Websock = () => {
       const message = {
         event: "connection",
         userName,
+        current,
         id: Date.now(),
       };
       console.log("patkluchilsya");
@@ -46,6 +58,7 @@ const Websock = () => {
       console.log("Socket Error");
     };
   }
+
   const onChangeInputValue = (e) => {
     setValue(e.target.value);
   };
@@ -76,9 +89,11 @@ const Websock = () => {
       </div>
     );
   }
+
   const sendMessage = async () => {
     const message = {
       userName,
+      current,
       message: value,
       id: Date.now(),
       event: "message",
@@ -86,21 +101,29 @@ const Websock = () => {
     socket.current.send(JSON.stringify(message));
     setValue("");
   };
+
   console.log(message);
-  console.log("hgfvhgvb")gtehtrhrththrthjhjryjtejetjetje
+
   return (
     <div className="chat">
       <div className="Navbar"></div>
       <div className="body">
         <div className="messageBlock">
           {message.map((mess) => (
-            <div key={mess.id}>
+            <div key={mess.id} className="messageBody">
               {mess.event === "connection" ? (
-                <div className="connected">User connected {mess.userName}</div>
+                <div className="connected">
+                  <p className="connectedText">
+                    User connected {mess.userName}
+                  </p>
+                </div>
               ) : (
                 <div className="message">
                   <p className="messageText">
-                    {mess.userName}
+                    <span className="userPhoto">
+                      {mess.userName[0].toUpperCase()}
+                    </span>
+                    <span className="time">{mess.current}</span>
                     {mess.message}
                   </p>
                 </div>
@@ -127,7 +150,7 @@ const Websock = () => {
             </div>
           )}
           <SendMessage
-            value={value}
+            value={value.replace(/^\s+|\s-$/gm,'')}
             onChange={onChangeInputValue}
             sendMessage={sendMessage}
             chosenEmoji={chosenEmoji}

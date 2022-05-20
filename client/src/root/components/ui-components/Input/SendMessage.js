@@ -33,7 +33,7 @@ const SendMessage = ({
           <ISend />
         </button>
       ) : (
-        <button type="submit" className="sendBtn" onClick={sendMessage}>
+        <button type="submit" className="sendBtn">
           <IVoice />
         </button>
       )}
