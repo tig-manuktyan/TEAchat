@@ -87,7 +87,7 @@ const Websock = () => {
     setValue("");
   };
   console.log(message);
-  console.log("hgfvhgvb")
+  console.log("hgfvhgvb")gtehtrhrththrthjhjryjtejetjetje
   return (
     <div className="chat">
       <div className="Navbar"></div>
