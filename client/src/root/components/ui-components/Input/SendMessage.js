@@ -11,10 +11,8 @@ const SendMessage = ({
   value,
   onChange,
   sendMessage,
-  chosenEmoji,
-  onEmojiClick,
   openEmojiPicker,
-  openEmoji,
+  handleKeyDown,
 }) => {
   return (
     <div className="sendMessage">
@@ -23,7 +21,7 @@ const SendMessage = ({
         <button className="smileBtn" onClick={openEmojiPicker}>
           <ISmile />
         </button>
-        <TextArea value={value} onChange={onChange} />
+        <TextArea value={value} onChange={onChange} handleKeyDown={handleKeyDown} />
         <button className="smileBtn" onClick={openEmojiPicker}>
           <IAttachment />
         </button>

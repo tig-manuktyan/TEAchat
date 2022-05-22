@@ -1,11 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import SendMessage from "../../components/ui-components/Input/SendMessage";
-import TextArea from "../../components/ui-components/TextArea/TextArea";
 import { LoginLogo } from "./../../assets/icon/LoginLogo";
-import "./styles.css";
 import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
+import "./styles.css";
+import { useTranslation } from "react-i18next";
 
 const Websock = () => {
+  const { t } = useTranslation("auth");
   const [value, setValue] = useState("");
   const [message, setMessage] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
@@ -21,6 +22,7 @@ const Websock = () => {
   const socket = useRef();
   const [conected, setConected] = useState(false);
   const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject);
@@ -30,9 +32,7 @@ const Websock = () => {
     setOpenEmoji(!openEmoji);
   };
 
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
 
   function connect() {
     socket.current = new WebSocket("ws://localhost:5000");
@@ -67,6 +67,15 @@ const Websock = () => {
     setUserName(e.target.value);
   };
 
+  const onChangeInputValuePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleKeyDownConnected = (e) => {
+    if (e.key === "Enter") {
+      connect();
+    }
+  };
   if (!conected) {
     return (
       <div className="connectBody">
@@ -74,7 +83,7 @@ const Websock = () => {
           <LoginLogo />
           <h1>
             <span>TEA</span>
-            <span>Code</span> Panel
+            <span>Code</span> {t("title")}
           </h1>
         </div>
         <div className="connectForm">
@@ -82,9 +91,17 @@ const Websock = () => {
             type={"text"}
             placeholder="userName"
             value={userName}
+            onKeyDown={handleKeyDownConnected}
             onChange={onChangeInputValueUserName}
           />
-          <button onClick={connect}>voyti</button>
+          <input
+            type={"password"}
+            placeholder="userName"
+            value={password}
+            onKeyDown={handleKeyDownConnected}
+            onChange={onChangeInputValuePassword}
+          />
+          <button onClick={connect}>{t("login")}</button>
         </div>
       </div>
     );
@@ -101,6 +118,11 @@ const Websock = () => {
     socket.current.send(JSON.stringify(message));
     setValue("");
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  };
 
   console.log(message);
 
@@ -108,7 +130,10 @@ const Websock = () => {
     <div className="chat">
       <div className="Navbar"></div>
       <div className="body">
-        <div className="messageBlock">
+        <div
+          className="messageBlock"
+          // onScroll={(e) => console.log(e.scrollTop(33000), "Scrolllllllll")}
+        >
           {message.map((mess) => (
             <div key={mess.id} className="messageBody">
               {mess.event === "connection" ? (
@@ -150,12 +175,13 @@ const Websock = () => {
             </div>
           )}
           <SendMessage
-            value={value.replace(/^\s+|\s-$/gm,'')}
+            value={value.replace(/^\s+|\s-$/gm, "")}
             onChange={onChangeInputValue}
             sendMessage={sendMessage}
             chosenEmoji={chosenEmoji}
             onEmojiClick={onEmojiClick}
             openEmojiPicker={openEmojiPicker}
+            handleKeyDown={handleKeyDown}
           />
         </div>
       </div>

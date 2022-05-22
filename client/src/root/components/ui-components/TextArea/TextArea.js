@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./styles.css";
 
-const TextArea = ({ placeholder = "Message", value, onChange }) => {
+const TextArea = ({
+  placeholder = "Message",
+  value,
+  onChange,
+  handleKeyDown,
+}) => {
   const textAreaRef = useRef(null);
 
   const resizeTextArea = () => {
@@ -15,6 +20,7 @@ const TextArea = ({ placeholder = "Message", value, onChange }) => {
     <div>
       <textarea
         ref={textAreaRef}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
         className="input"
         value={value}
