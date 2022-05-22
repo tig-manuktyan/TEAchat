@@ -66,6 +66,11 @@ const Websock = () => {
   const onChangeInputValueUserName = (e) => {
     setUserName(e.target.value);
   };
+  const handelKeyDown = (e) => {
+     if(e.key === "Enter"){
+       connect()
+     }
+  }
 
   if (!conected) {
     return (
@@ -83,6 +88,7 @@ const Websock = () => {
             placeholder="userName"
             value={userName}
             onChange={onChangeInputValueUserName}
+            onKeyDown={handelKeyDown}
           />
           <button onClick={connect}>voyti</button>
         </div>
