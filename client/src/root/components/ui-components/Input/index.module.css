@@ -18,6 +18,13 @@
     border: 0;
     background-color: transparent;
     align-self: flex-end;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.smileBtn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .sendBtn {
@@ -30,4 +37,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.themeAttachment {
+    background-color: #212121 !important;
+}
+
+.dropItemAttachment {
+    display: flex;
+    align-items: center;
+}
+
+.dropItemAttachmentBlock:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
 }

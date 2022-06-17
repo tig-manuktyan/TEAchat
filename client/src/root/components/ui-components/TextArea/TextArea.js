@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import "./styles.css";
+import React, { useRef, useEffect } from "react";
+import styles from "./index.module.css";
 
 const TextArea = ({
   placeholder = "Message",
@@ -22,7 +22,8 @@ const TextArea = ({
         ref={textAreaRef}
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
-        className="input"
+        className={styles.input}
+        required
         value={value}
         onChange={onChange}
         rows={1}

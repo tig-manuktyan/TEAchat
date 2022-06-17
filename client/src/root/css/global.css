@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+.emoji-picker-react .emoji-group:before,
+.emoji-picker-react input.emoji-search {
+    background-color: #212121 !important;
+    color: #fff !important;
+}
+
+.aside.emoji-picker-react {
+    box-shadow: 0 5px 10px #212121 !important;
+}
+
+.emoji-picker-react .emoji-scroll-wrapper {
+    overflow-x: hidden;
+}
+
+
 /* width */
 ::-webkit-scrollbar {
     width: 7px;

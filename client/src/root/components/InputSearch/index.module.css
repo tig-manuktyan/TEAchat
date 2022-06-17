@@ -1,0 +1,11 @@
+.inputContainer {
+    background: rgba(0, 0, 0, 0.44);
+    border: 1px solid rgba(214, 205, 205, 0.66);
+    border-radius: 22px;
+    width: 85%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}

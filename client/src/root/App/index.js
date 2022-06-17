@@ -11,8 +11,8 @@ const App = () => {
   }
   return (
     <div>
-      <button onClick={() => handleClick("en")}>English</button>
-      <button onClick={() => handleClick("ru")}>Korean</button>
+      {/* <button onClick={() => handleClick("en")}>EN</button> */}
+      {/* <button onClick={() => handleClick("ru")}>Ru</button> */}
       <Websock />
     </div>
   );

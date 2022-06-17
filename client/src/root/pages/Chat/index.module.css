@@ -1,0 +1,76 @@
+.body {
+    height: 100vh;
+    width: 100%;
+    background: url('./../../assets/images/bg3.png');
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-y: scroll;
+}
+
+.connectBody {
+    background: url('./../../assets/images/authBackgroundTwo.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.connectBtn {
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.29);
+    color: #AC005F;
+    width: 90px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 0;
+}
+
+.connectContent {
+    background: rgba(33, 33, 33, 0.6);
+    padding: 20px 35px;
+}
+
+.iiiiiiiii {
+    border: 0;
+    background-color: transparent;
+    color: red;
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+}
+
+
+.logoBlock {
+    display: flex;
+    align-items: center;
+}
+
+
+input.success:focus {
+    outline-color: red;
+}
+
+.connectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.forgetPass {
+    text-align: center;
+    color: #AC005F;
+}
+
+.chat {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+

@@ -1,0 +1,17 @@
+.NavbarHeader {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Navbar {
+    width: 35%;
+    background-color: #212121;
+    height: 100vh;
+}
+
+.burgerMenu {
+    border: 0;
+    color: #9A9292;
+    background-color: transparent;
+}

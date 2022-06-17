@@ -1,0 +1,13 @@
+.triggerDropItem{
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+.triggerDropText{
+    /* height: 25px; */
+    color: #FFFFFF;
+}
+.triggerDropIcon{
+    width: 25px;
+    height: 25px;
+}
